@@ -1,0 +1,32 @@
+{
+  "chain": {
+    "state": "stated",
+    "value": {
+      "name": "Robinhood Chain",
+      "chainId": 4663,
+      "chainIdHex": "0x1237",
+      "rpc": "https://rpc.mainnet.chain.robinhood.com"
+    },
+    "source": "client statement",
+    "grain": "batch-level",
+    "dated": "2026-09-02"
+  },
+  "contract": {
+    "state": "absent",
+    "value": null,
+    "source": null,
+    "dated": null
+  },
+  "x": {
+    "state": "stated",
+    "value": "https://x.com/Epoxy_Run",
+    "source": "client statement",
+    "dated": "2026-10-05"
+  },
+  "github": {
+    "state": "absent",
+    "value": null,
+    "source": null,
+    "dated": null
+  }
+}

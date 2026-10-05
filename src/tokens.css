@@ -1,0 +1,102 @@
+/*
+  TOKENS: the only file in the project allowed to contain colour literals.
+
+  Provenance.
+  Logo ramp: k-means (k=6, 24 iterations, deterministic luma-rank seeding) over the
+  foreground pixels (alpha>0, luma>40, every third pixel) of the transparent logo,
+  brand/LOGO EPOXY PNG...png (IHDR 2000x2000, 8-bit, colour type 6; 3,469,632
+  transparent pure-black pixels, so every resize is done premultiplied). Each
+  centroid is snapped to the nearest real pixel; the coordinate is in the marker
+  next to each value. Neutral and dark tones are sampled straight from real pixels
+  of the slide and cover artwork in reference/. Every marker is re-read from the
+  source file by the gates, so a drifting literal fails the build.
+  Marker form: src=<file> @x,y
+*/
+:root {
+  /* logo ramp, light to deep */
+  --px-ember-hi: #fdec97; /* src=brand/LOGO EPOXY PNG...png @1226,548 */
+  --px-gold: #fdd05e;     /* src=brand/LOGO EPOXY PNG...png @672,549 */
+  --px-amber: #fdb32e;    /* src=brand/LOGO EPOXY PNG...png @1044,546 */
+  --px-orange: #f8810d;   /* src=brand/LOGO EPOXY PNG...png @1314,618 */
+  --px-rust: #e75204;     /* src=brand/LOGO EPOXY PNG...png @795,1308 */
+  --px-ember-lo: #c23803; /* src=brand/LOGO EPOXY PNG...png @762,1389 */
+
+  /* neutrals from the artwork */
+  --px-cream: #f8edcd;    /* src=reference/EPOXY 1.jpg.jpeg @306,27 */
+  --px-bright: #fdfede;   /* src=reference/SAMPUL EPOXY JPG.jpg.jpeg @925,404 */
+  --px-brown: #2c1505;    /* src=reference/EPOXY 1.jpg.jpeg @800,150 */
+  --px-umber: #210f03;    /* src=reference/SAMPUL EPOXY JPG.jpg.jpeg @760,184 */
+  --px-void: #100901;     /* src=reference/SAMPUL EPOXY JPG.jpg.jpeg @750,20 */
+  --px-black: #000000;    /* src=brand/LOGO EPOXY PNG.png @100,100 */
+  --px-rock: #5c2803;     /* src=reference/SAMPUL EPOXY JPG.jpg.jpeg @1335,186 */
+  --px-tan: #644f30;      /* src=reference/EPOXY 1.jpg.jpeg @364,38 */
+  --px-link: #f4aa49;     /* src=reference/EPOXY 1.jpg.jpeg @200,848 */
+
+  /* semantic roles (no new literals below this line) */
+  --ink: var(--px-void);
+  --panel: var(--px-brown);
+  --panel2: var(--px-umber);
+  --panel-glass: color-mix(in srgb, var(--px-brown) 85%, transparent);
+  --rule: color-mix(in srgb, var(--px-cream) 10%, transparent);
+  --soft: color-mix(in srgb, var(--px-cream) 6%, transparent);
+  --border-strong: color-mix(in srgb, var(--px-cream) 18%, transparent);
+  --grid-line: color-mix(in srgb, var(--px-cream) 3.5%, transparent);
+  --fg: var(--px-cream);
+  --fg-hi: var(--px-bright);
+  --dim: color-mix(in srgb, var(--px-cream) 66%, var(--px-brown));
+  --faint: color-mix(in srgb, var(--px-cream) 46%, var(--px-brown));
+  --accent: var(--px-amber);
+  --accent-hi: var(--px-gold);
+  --accent-lo: var(--px-orange);
+  --glow: color-mix(in srgb, var(--px-amber) 28%, transparent);
+  --live: var(--px-ember-hi);
+  --warn: var(--px-orange);
+  --down: var(--px-ember-lo);
+  --down-hi: var(--px-rust);
+  --ring: color-mix(in srgb, var(--px-amber) 55%, transparent);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* light panels: amber stat strip and cream paper */
+.theme-amber {
+  --ink: var(--px-amber);
+  --panel: var(--px-gold);
+  --panel2: var(--px-amber);
+  --rule: color-mix(in srgb, var(--px-brown) 20%, transparent);
+  --soft: color-mix(in srgb, var(--px-brown) 12%, transparent);
+  --border-strong: color-mix(in srgb, var(--px-brown) 32%, transparent);
+  --grid-line: color-mix(in srgb, var(--px-brown) 7%, transparent);
+  --fg: var(--px-brown);
+  --fg-hi: var(--px-void);
+  --dim: color-mix(in srgb, var(--px-brown) 78%, var(--px-amber));
+  --faint: color-mix(in srgb, var(--px-brown) 66%, var(--px-amber));
+  --accent: var(--px-brown);
+  --accent-hi: var(--px-void);
+  --live: var(--px-brown);
+  --warn: var(--px-rock);
+  --down: var(--px-ember-lo);
+  --glow: color-mix(in srgb, var(--px-brown) 18%, transparent);
+  --ring: color-mix(in srgb, var(--px-brown) 60%, transparent);
+  background-color: var(--px-amber);
+  color: var(--fg);
+}
+.theme-paper {
+  --ink: var(--px-cream);
+  --panel: var(--px-bright);
+  --panel2: var(--px-cream);
+  --rule: color-mix(in srgb, var(--px-brown) 16%, transparent);
+  --soft: color-mix(in srgb, var(--px-brown) 9%, transparent);
+  --border-strong: color-mix(in srgb, var(--px-brown) 30%, transparent);
+  --grid-line: color-mix(in srgb, var(--px-brown) 6%, transparent);
+  --fg: var(--px-brown);
+  --fg-hi: var(--px-void);
+  --dim: color-mix(in srgb, var(--px-brown) 76%, var(--px-cream));
+  --faint: color-mix(in srgb, var(--px-brown) 62%, var(--px-cream));
+  --accent: var(--px-ember-lo);
+  --accent-hi: var(--px-rust);
+  --live: var(--px-rock);
+  --glow: color-mix(in srgb, var(--px-orange) 22%, transparent);
+  --ring: color-mix(in srgb, var(--px-ember-lo) 60%, transparent);
+  background-color: var(--px-cream);
+  color: var(--fg);
+}

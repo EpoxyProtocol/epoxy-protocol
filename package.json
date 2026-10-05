@@ -1,0 +1,20 @@
+{
+  "name": "epoxy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Epoxy — protocol site on Robinhood Chain",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "assets": "node tools/analyze-assets.mjs",
+    "build": "node tools/build.mjs",
+    "gates": "node tools/gates.mjs"
+  },
+  "devDependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "esbuild": "^0.25.0",
+    "linkedom": "^0.18.13",
+    "sharp": "^0.34.0"
+  }
+}

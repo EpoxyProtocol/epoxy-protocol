@@ -1,0 +1,16 @@
+{
+  "crop": {
+    "x0": 594,
+    "y0": 544,
+    "x1": 1408,
+    "y1": 1454,
+    "side": 1021
+  },
+  "outputs": [
+    "logo-512.png",
+    "logo-256.png",
+    "logo-128.png",
+    "logo-64.png",
+    "favicon.svg (3070B)"
+  ]
+}
